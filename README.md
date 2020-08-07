@@ -1,6 +1,9 @@
 # React Wheel Picker Component
 Mobile Wheel 형태의 Picker 컴포넌트
 
+## example
+<img src="https://github.com/oper0116/react-wheel-picker/demo/run.gif" width="288"/>
+
 # 시작하기
 
 ## 사용법
@@ -53,10 +56,10 @@ export default App;
 # 사용자 가이드
 
 ## Props
-|    Prop Name  | Description | Default Value | Example Values |
-|:--------------|:------------|:-------------:|:---------------|
-| selectedIndex | 초기 선택되어진 아이템의 인덱스 | 0 | 0 |
-| items         | Picker에 표기되어질 아이템 리스트 | N\A | [ { value: 1, display: '1' }, { value: 2, display: '2' } ] |
+|    Prop Name  | Type | Description | Default Value | Example Values |
+|:--------------| :--- | :------------|:-------------:|:---------------|
+| selectedIndex | Number | 초기 선택되어진 아이템의 인덱스 | 0 | 0 |
+| items         | Array  | Picker에 표기되어질 아이템 리스트 | N\A | [ { value: 1, display: '1' }, { value: 2, display: '2' } ] |
 
 # Lisence
 MIT Lisence
