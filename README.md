@@ -1,7 +1,8 @@
 # React Wheel Picker Component
 Mobile Wheel 형태의 Picker 컴포넌트
 
-## example
+## 예제
+
 <img src="https://github.com/oper0116/react-wheel-picker/blob/master/.github/run.gif" width="288"/>
 
 # 시작하기
