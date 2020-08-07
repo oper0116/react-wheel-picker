@@ -101,7 +101,7 @@ var WheelPicker = /** @class */ (function (_super) {
         _this.startTouchY = 0;
         _this.currentTanslateY = 0;
         _this.isTouchStart = false;
-        _this.isMoving = false;
+        _this.isMoving = true;
         _this.containerRef = createRef();
         _this.itemRefs = _this.props.items.map(function () { return createRef(); });
         _this.onStart = function (event) {
@@ -164,7 +164,7 @@ var WheelPicker = /** @class */ (function (_super) {
                         transform: "translate3d(0, " + this.state.translateY + "px, 0)",
                         transitionDuration: this.isMoving ? '0ms' : ''
                     } }, this.props.items.map(function (item, index) {
-                    return (React.createElement("div", { key: index, ref: _this.itemRefs[index], className: classnames('picker-item', { 'selected': !_this.isMoving && _this.state.activeIndex === index }), "data-index": index, onClick: function () { return _this.onClickItem(index); } }, React.createElement('div', { dangerouslySetInnerHTML: { __html: item.display } })));
+                    return (React.createElement("div", { key: index, ref: _this.itemRefs[index], className: classnames('picker-item', { 'selected': _this.state.activeIndex === index }), "data-index": index, onClick: function () { return _this.onClickItem(index); } }, React.createElement('div', { dangerouslySetInnerHTML: { __html: item.display } })));
                 })))));
     };
     WheelPicker.prototype.onSelectedValue = function (index) {

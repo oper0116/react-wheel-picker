@@ -1,6 +1,6 @@
 import React from 'react';
-import WheelPicker from 'react-wheel-picker';
-import Picker from './Picker';
+// import WheelPicker from 'react-wheel-picker';
+import WheelPicker from './Picker';
 import './App.css';
 
 

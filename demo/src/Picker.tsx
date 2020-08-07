@@ -32,7 +32,7 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
 
   private isTouchStart: boolean  = false;
 
-  private isMoving: boolean = false;
+  private isMoving: boolean = true;
 
   private containerRef: RefObject<HTMLDivElement> = createRef();
 
@@ -74,7 +74,7 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
                   <div
                     key={index}
                     ref={this.itemRefs[index]}
-                    className={classNames('picker-item', {'selected': !this.isMoving && this.state.activeIndex === index })}
+                    className={classNames('picker-item', {'selected': this.state.activeIndex === index })}
                     data-index={index}
                     onClick={() => this.onClickItem(index)}
                   >
@@ -97,7 +97,7 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
       min: (containerHeight / 2) - (itemHeight * (this.props.items.length - 1)) + (itemHeight / 2),
       max: (containerHeight / 2) - (itemHeight / 2)
     }
-
+    
     this.currentTanslateY = (containerHeight / 2) - (itemHeight / 2) - (index * itemHeight);
     this.setState({
       ...this.state,
