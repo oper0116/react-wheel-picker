@@ -1,0 +1,36 @@
+{
+  "name": "react-wheel-picker",
+  "version": "1.0.0",
+  "description": "React Wheel Picker Component",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "oper0116",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "autoprefixer": "^9.8.6",
+    "postcss-import": "^12.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts-ts": "^3.1.0",
+    "rollup": "^2.10.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-postcss": "^3.1.4",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^3.9.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+ }
+}
