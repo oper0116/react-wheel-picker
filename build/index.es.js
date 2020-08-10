@@ -145,7 +145,7 @@ var WheelPicker = /** @class */ (function (_super) {
             else {
                 activeIndex = Math.round(Math.abs((_this.state.translateY - _this.criticalPoints.max) / _this.itemRefs[0].current.offsetHeight));
             }
-            _this.onSelectedValue(activeIndex);
+            _this.onSelectedValue(activeIndex, false);
         };
         _this.state = {
             activeIndex: 0,
@@ -154,7 +154,7 @@ var WheelPicker = /** @class */ (function (_super) {
         return _this;
     }
     WheelPicker.prototype.componentDidMount = function () {
-        this.onSelectedValue(this.props.selectedIndex);
+        this.onSelectedValue(this.props.selectedIndex, true);
     };
     WheelPicker.prototype.render = function () {
         var _this = this;
@@ -167,7 +167,7 @@ var WheelPicker = /** @class */ (function (_super) {
                     return (React.createElement("div", { key: index, ref: _this.itemRefs[index], className: classnames('picker-item', { 'selected': _this.state.activeIndex === index }), "data-index": index, onClick: function () { return _this.onClickItem(index); } }, React.createElement('div', { dangerouslySetInnerHTML: { __html: item.display } })));
                 })))));
     };
-    WheelPicker.prototype.onSelectedValue = function (index) {
+    WheelPicker.prototype.onSelectedValue = function (index, initilize) {
         var containerHeight = this.containerRef.current.offsetHeight;
         var itemHeight = this.itemRefs.length > 0 ? this.itemRefs[0].current.offsetHeight : 0;
         this.criticalPoints = {
@@ -176,9 +176,15 @@ var WheelPicker = /** @class */ (function (_super) {
         };
         this.currentTanslateY = (containerHeight / 2) - (itemHeight / 2) - (index * itemHeight);
         this.setState(__assign(__assign({}, this.state), { activeIndex: index, translateY: (containerHeight / 2) - (itemHeight / 2) - (index * itemHeight) }));
+        if (initilize) {
+            return;
+        }
+        if (this.props.onChange) {
+            this.props.onChange(index);
+        }
     };
     WheelPicker.prototype.onClickItem = function (index) {
-        this.onSelectedValue(index);
+        this.onSelectedValue(index, false);
     };
     WheelPicker.defaultProps = {
         selectedIndex: 0

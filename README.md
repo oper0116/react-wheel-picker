@@ -61,6 +61,7 @@ export default App;
 |:--------------| :--- | :------------|:-------------:|:---------------|
 | selectedIndex | Number | 초기 선택되어진 아이템의 인덱스 | 0 | 0 |
 | items         | Array  | Picker에 표기되어질 아이템 리스트 | N\A | [ { value: 1, display: '1' }, { value: 2, display: '2' } ] |
+| onChange      | function | 아이템이 선택되었을때 발생하는 함수  | N\A | |
 
 # Lisence
 MIT Lisence

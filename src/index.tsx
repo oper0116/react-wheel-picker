@@ -47,7 +47,7 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
   }
 
   public componentDidMount() {
-    this.onSelectedValue(this.props.selectedIndex);
+    this.onSelectedValue(this.props.selectedIndex, true);
   }
 
   public render() {
@@ -89,7 +89,7 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
     );
   }
 
-  private onSelectedValue(index: number) {
+  private onSelectedValue(index: number, initilize: boolean) {
     const containerHeight = this.containerRef.current!.offsetHeight;
     const itemHeight = this.itemRefs.length > 0 ? this.itemRefs[0].current!.offsetHeight : 0;
 
@@ -104,6 +104,14 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
       activeIndex: index,
       translateY: (containerHeight / 2) - (itemHeight / 2) - (index * itemHeight)
     });
+
+    if (initilize) {
+      return;
+    }
+
+    if (this.props.onChange) {
+      this.props.onChange(index);
+    }
   }
 
   private onStart = (event: any) => {
@@ -158,10 +166,10 @@ export default class WheelPicker extends React.Component<PropsType, StateType> {
       activeIndex = Math.round(Math.abs((this.state.translateY - this.criticalPoints.max) / this.itemRefs[0].current!.offsetHeight));
     }
 
-    this.onSelectedValue(activeIndex);
+    this.onSelectedValue(activeIndex, false);
   }
 
   private onClickItem(index: number) {
-    this.onSelectedValue(index);
+    this.onSelectedValue(index, false);
   }
 }
